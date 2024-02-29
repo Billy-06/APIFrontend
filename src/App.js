@@ -1,23 +1,29 @@
 import './App.css';
 import Navbar from './components/Navbar';
+import 'react-app-polyfill/stable';
 
 import User from './components/User';
-import Article from "./components/Article";
-import Project from "./components/Project";
-import ArticleList from "./components/ArticleList";
-import ProjectList from "./components/ProjectList";
-import UserList from "./components/UserList";
 import Home from "./components/Home";
 import Login from './components/Login';
+import SignUp from './components/Signup';
+import Project from "./components/Project";
+import Article from "./components/Article";
+import UserList from "./components/UserList";
+import ProjectList from "./components/ProjectList";
+import ArticleList from "./components/ArticleList";
 import { UserProvider } from './components/UserContext';
 
-// IMport the browser router
+// Import the browser router
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
+  // const user
+  // if (localStorage.getItem("user_token") == "") {
+
+  // }
   
   return (
-    <UserProvider value={{ user: {token: null, username: "anonymous"} }} >
+    <UserProvider value={{ user: { username: "anonymous", token: null } }} >
       <div className="App">
         <Router>
           <Navbar />
@@ -29,6 +35,7 @@ function App() {
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/login" element={<Login />} />
+                  <Route path="/signup" element={<SignUp />} />
                   <Route path="/projects" element={<ProjectList />} />
                   <Route path="/projects/:id" element={<Project />} />
 

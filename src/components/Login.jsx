@@ -6,7 +6,7 @@ import { UserContext } from './UserContext';
 
 function Login() {
     const setUser = useContext(UserContext);
-    const [username, setUsername] = useState('');
+    const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
@@ -14,7 +14,7 @@ function Login() {
         e.preventDefault();
         
         const response = await axios.post('/login/', {
-            username: username,
+            name: name,
             password: password
         });
 
@@ -28,7 +28,7 @@ function Login() {
             // Save token to local storage
             localStorage.setItem('user_token', token);
             // Set user context after successful login
-            setUser({ username: username, token: token });            
+            setUser({ name: name, token: token });            
 
         }
         
@@ -40,8 +40,8 @@ function Login() {
                 <h2>Login</h2>
                 <form onSubmit={ handleSubmit }>
                     <div className='mb-3'>
-                        <label className='form-label' htmlFor="username">Username</label>
-                        <input className='form-control' type="text" name='username' placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+                        <label className='form-label' htmlFor="name">Name</label>
+                        <input className='form-control' type="text" name='name' placeholder="John" value={name} onChange={(e) => setName(e.target.value)} />
                     </div>
                     <div className='mb-3'>
                         <label className='form-label' htmlFor="password">Password</label>
