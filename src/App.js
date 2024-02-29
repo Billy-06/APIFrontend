@@ -34,6 +34,7 @@ function App() {
               <div className="col-md-8 pt-4">
                 <Routes>
                   <Route path="/" element={<Home />} />
+                  <Route path="/APIFrontend" element={<Home />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/signup" element={<SignUp />} />
                   <Route path="/projects" element={<ProjectList />} />
