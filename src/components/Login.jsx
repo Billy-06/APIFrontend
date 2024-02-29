@@ -14,7 +14,7 @@ function Login() {
         e.preventDefault();
         
         const response = await axios.post('/login/', {
-            name: name,
+            username: name,
             password: password
         });
 
@@ -28,7 +28,8 @@ function Login() {
             // Save token to local storage
             localStorage.setItem('user_token', token);
             // Set user context after successful login
-            setUser({ name: name, token: token });            
+            console.log(setUser);
+            // setUser({ name: name, token: token });            
 
         }
         
